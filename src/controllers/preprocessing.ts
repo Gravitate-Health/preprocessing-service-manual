@@ -25,16 +25,22 @@ const addSemmanticAnnotation = (leafletSectionList: any[]) => {
 
 export const preprocess = async (req: Request, res: Response) => {
   let epi = req.body;
+  let epiId = epi['id'] as string
   console.log(`Received ePI with Length: ${JSON.stringify(epi).length}`);
-  Logger.logInfo('preprocessing.ts', 'preprocess', `queried /preprocess function with epi ID: ${JSON.stringify(epi['id'])}`)
+  Logger.logInfo('preprocessing.ts', 'preprocess', `queried /preprocess function with epi ID: ${epiId}`)
 
   //This preprocessors returns the manual preprocessed ePis.
   let axiosInstance = axios.create()
 
-  let rawToPreprocessedIds = {
+  let rawToPreprocessedIds: any = {
+    "bundlepackageleaflet-63b15a3bb9d18a00ecd0962bc011c765": "processedbundlekarveabik", // Biktarvy
+    "bundlepackageleaflet-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcium
+    "bundlepackageleaflet-6eb523b7a88cd6dcee848368833cbd08": "processedbundledovato-es", //Dovato
+    "bundlepackageleaflet-56a32a5ee239fc834b47c10db1faa3fd": "processedbundleflucelvax", // flucelvax
+    "bundlepackageleaflet-29436a85dac3ea374adb3fa64cfd2578": "processed-compositionaf8d2f6e4772c29a8ef9fbb165e80d28", // HIPERICO ARKOPHARMA
     "bundlepackageleaflet-2d49ae46735143c1323423b7aea24165": "Processedbundlekarvea",
   }
-  let preprocessedId = rawToPreprocessedIds["bundlepackageleaflet-2d49ae46735143c1323423b7aea24165"]
+  let preprocessedId = rawToPreprocessedIds[epiId]
 
   if (preprocessedId) {
     console.log(`Getting Preprocessed ePI with ID: ${preprocessedId}`);
@@ -44,23 +50,6 @@ export const preprocess = async (req: Request, res: Response) => {
     return
   }
 
-
-  let leafletSectionList
-  try {
-    leafletSectionList = getLeaflet(epi)
-  } catch (error) {
-    res.status(400).send('Bad Payload')
-    return
-  }
-  let annotatedSectionList
-  try {
-    annotatedSectionList = addSemmanticAnnotation(leafletSectionList)
-  } catch (error) {
-    res.status(500).send('Preprocessor error')
-    return
-  }
-  epi['entry'][0]['resource']['section'][0]['section'] = annotatedSectionList
-  console.log(`Returning ePI with Length: ${JSON.stringify(epi).length}`);
   res.status(200).send(epi);
   return
 };
