@@ -25,7 +25,14 @@ This repository contains a preprocesing service which returns manually preproces
 ---
 ## Kubernetes Deployment
 
-1. Create the following resources:
+1. Edit the `kubernetes-yaml/002_preprocessing-service-manual-deployment.yaml` file and change the `URL` environment variable to point to the base URL where FHIR Server is hosted. For example:
+```yaml
+env:
+  - name: URL
+    value: "https://fosps.gravitatehealth.eu/"
+```
+
+2. Create the following resources:
 ```bash
 kubectl apply -f kubernetes-yaml/001_preprocessing-service-manual-service.yaml
 kubectl apply -f kubernetes-yaml/002_preprocessing-service-manual-deployment.yaml

@@ -44,7 +44,7 @@ export const preprocess = async (req: Request, res: Response) => {
 
   if (preprocessedId) {
     console.log(`Getting Preprocessed ePI with ID: ${preprocessedId}`);
-    let preprocessedResponse = await axiosInstance.get(`https://fosps.gravitatehealth.eu/epi/api/fhir/Bundle/${preprocessedId}`)
+    let preprocessedResponse = await axiosInstance.get(`${process.env.URL}/epi/api/fhir/Bundle/${preprocessedId}`)
     let preprocessedEpi = preprocessedResponse.data
     res.status(200).send(preprocessedEpi)
     return
