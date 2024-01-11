@@ -33,12 +33,19 @@ export const preprocess = async (req: Request, res: Response) => {
   let axiosInstance = axios.create()
 
   let rawToPreprocessedIds: any = {
+
+    // English general ePIs
     "bundlepackageleaflet-63b15a3bb9d18a00ecd0962bc011c765": "processedbundlekarveabik", // Biktarvy
-    "bundlepackageleaflet-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcium
     "bundlepackageleaflet-6eb523b7a88cd6dcee848368833cbd08": "processedbundledovato-en", //Dovato (eng)
     "bundlepackageleaflet-56a32a5ee239fc834b47c10db1faa3fd": "processedbundleflucelvax", // flucelvax
     "bundlepackageleaflet-29436a85dac3ea374adb3fa64cfd2578": "processed-compositionaf8d2f6e4772c29a8ef9fbb165e80d28", // HIPERICO ARKOPHARMA
-    "bundlepackageleaflet-2d49ae46735143c1323423b7aea24165": "Processedbundlekarvea",
+    "bundlepackageleaflet-2d49ae46735143c1323423b7aea24165": "Processedbundlekarvea", // Karvea
+    
+    //Spanish TS ePIs
+    "bundlepackageleaflet-es-b44cce291e466626afa836fffe72c350": "bundleprocessed-es-b44cce291e466626afa836fffe72c350", // Biktarvy ES
+    "bundlepackageleaflet-es-56a32a5ee239fc834b47c10db1faa3fd": "processedbundleflucelvaxES", // Flucelvax ES
+    "bundlepackageleaflet-f98744933a164dfc1d0bf89825ebfca1": "processedbundledovato-es", // Dovato ES
+    "bundlepackageleaflet-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcio ES
   }
   let preprocessedId = rawToPreprocessedIds[epiId]
 
