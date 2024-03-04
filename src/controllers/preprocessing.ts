@@ -42,10 +42,10 @@ export const preprocess = async (req: Request, res: Response) => {
     "bundlepackageleaflet-2d49ae46735143c1323423b7aea24165": "Processedbundlekarvea", // Karvea
     
     //Spanish TS ePIs
-    "bundlepackageleaflet-es-b44cce291e466626afa836fffe72c350": "bundleprocessed-es-b44cce291e466626afa836fffe72c350", // Biktarvy ES
-    "bundlepackageleaflet-es-56a32a5ee239fc834b47c10db1faa3fd": "processedbundleflucelvaxES", // Flucelvax ES
-    "bundlepackageleaflet-f98744933a164dfc1d0bf89825ebfca1": "processedbundledovato-es", // Dovato ES
-    "bundlepackageleaflet-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcio ES
+    "bundlepackageleaflet-es-dcaa4d32aa6658a8df831551503e52ee": "bundleprocessed-es-b44cce291e466626afa836fffe72c350", // Biktarvy ES
+    "bundlepackageleaflet-es-04c9bd6fb89d38b2d83eced2460c4dc1": "processedbundleflucelvaxES", // Flucelvax ES
+    "bundlepackageleaflet-es-f98744933a164dfc1d0bf89825ebfca1": "processedbundledovato-es", // Dovato ES
+    "bundlepackageleaflet-es-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcio ES
   }
   let preprocessedId = rawToPreprocessedIds[epiId]
 
