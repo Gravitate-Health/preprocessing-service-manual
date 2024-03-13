@@ -45,7 +45,7 @@ export const preprocess = async (req: Request, res: Response) => {
     "bundlepackageleaflet-es-94a96e39cfdcd8b378d12dd4063065f9": "bundleprocessed-es-b44cce291e466626afa836fffe72c350", // Biktarvy ES (check)
     "bundlepackageleaflet-es-04c9bd6fb89d38b2d83eced2460c4dc1": "processedbundleflucelvaxES", // Flucelvax ES (check)
     "bundlepackageleaflet-es-49178f16170ee8a6bc2a4361c1748d5f": "processedbundledovato-es", // Dovato ES (check)
-    "bundlepackageleaflet-es-dcaa4d32aa6658a8df831551503e52ee": "processedbundlekarveacalcium", // Calcio ES (check)
+    "bundlepackageleaflet-es-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcio ES (check)
     "bundlepackageleaflet-es-29436a85dac3ea374adb3fa64cfd2578": "processedbundlehypericum", // HIPERICO ARKOPHARMA ES (check)
   }
   let preprocessedId = rawToPreprocessedIds[epiId]
