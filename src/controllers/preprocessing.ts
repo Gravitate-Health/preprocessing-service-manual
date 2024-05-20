@@ -35,11 +35,12 @@ export const preprocess = async (req: Request, res: Response) => {
   let rawToPreprocessedIds: any = {
 
     // English general ePIs
-    "bundlepackageleaflet-63b15a3bb9d18a00ecd0962bc011c765": "processedbundlekarveabik", // Biktarvy
-    "bundlepackageleaflet-6eb523b7a88cd6dcee848368833cbd08": "processedbundledovato-en", //Dovato (eng)
-    "bundlepackageleaflet-56a32a5ee239fc834b47c10db1faa3fd": "processedbundleflucelvax", // flucelvax
-    "bundlepackageleaflet-29436a85dac3ea374adb3fa64cfd2578": "processed-compositionaf8d2f6e4772c29a8ef9fbb165e80d28", // HIPERICO ARKOPHARMA
-    "bundlepackageleaflet-2d49ae46735143c1323423b7aea24165": "Processedbundlekarvea", // Karvea
+    "bundlepackageleaflet-en-94a96e39cfdcd8b378d12dd4063065f9": "processedbundlekarveabik", // Biktarvy
+    "bundlepackageleaflet-en-0ea7cb60ce178124a5eca40942ba8f42": "processedbundledovato-en", //Dovato (eng)
+    "bundlepackageleaflet-en-04c9bd6fb89d38b2d83eced2460c4dc1": "processedbundleflucelvax", // flucelvax
+   // "bundlepackageleaflet-29436a85dac3ea374adb3fa64cfd2578": "processed-compositionaf8d2f6e4772c29a8ef9fbb165e80d28", // HIPERICO ARKOPHARMA
+    "bundlepackageleaflet-en-dcaa4d32aa6658a8df831551503e52ee": "Processedbundlekarvea", // Karvea
+    
     
     //Spanish TS ePIs
     "bundlepackageleaflet-es-dcaa4d32aa6658a8df831551503e52ee": "bundleprocessed-es-b44cce291e466626afa836fffe72c350", // Biktarvy ES
@@ -48,7 +49,8 @@ export const preprocess = async (req: Request, res: Response) => {
     "bundlepackageleaflet-es-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcio ES
 
     "bundlepackageleaflet-es-2f37d696067eeb6daf1111cfc3272672": "bundlepackageleaflet-es-proc-2f37d696067eeb6daf1111cfc3272672", // tegretol
-    "bundlepackageleaflet-es-4fab126d28f65a1084e7b50a23200363": "bundlepackageleaflet-es-proc-4fab126d28f65a1084e7b50a23200363" // xenical
+    "bundlepackageleaflet-es-4fab126d28f65a1084e7b50a23200363": "bundlepackageleaflet-es-proc-4fab126d28f65a1084e7b50a23200363", // xenical
+    "bundlepackageleaflet-es-29436a85dac3ea374adb3fa64cfd2578": "processedbundlehypericum"
   }
   let preprocessedId = rawToPreprocessedIds[epiId]
 
