@@ -50,7 +50,11 @@ export const preprocess = async (req: Request, res: Response) => {
 
     "bundlepackageleaflet-es-2f37d696067eeb6daf1111cfc3272672": "bundlepackageleaflet-es-proc-2f37d696067eeb6daf1111cfc3272672", // tegretol
     "bundlepackageleaflet-es-4fab126d28f65a1084e7b50a23200363": "bundlepackageleaflet-es-proc-4fab126d28f65a1084e7b50a23200363", // xenical
-    "bundlepackageleaflet-es-29436a85dac3ea374adb3fa64cfd2578": "processedbundlehypericum"
+    "bundlepackageleaflet-es-29436a85dac3ea374adb3fa64cfd2578": "processedbundlehypericum",
+
+    "bundle-ibu-raw": "bundle-ibu-proc",
+    "bundle-met-raw": "bundle-met-proc",
+    "bundle-novo-raw": "bundle-novo-proc",
   }
   let preprocessedId = rawToPreprocessedIds[epiId]
 
