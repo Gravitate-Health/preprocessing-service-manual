@@ -36,16 +36,16 @@ export const preprocess = async (req: Request, res: Response) => {
 
     // English general ePIs
     "bundlepackageleaflet-en-94a96e39cfdcd8b378d12dd4063065f9": "processedbundlekarveabik", // Biktarvy
-    "bundlepackageleaflet-en-0ea7cb60ce178124a5eca40942ba8f42": "processedbundledovato-en", //Dovato (eng)
+    "bundlepackageleaflet-en-49178f16170ee8a6bc2a4361c1748d5f": "processedbundledovato-en", //Dovato (eng)
     "bundlepackageleaflet-en-04c9bd6fb89d38b2d83eced2460c4dc1": "processedbundleflucelvax", // flucelvax
    // "bundlepackageleaflet-29436a85dac3ea374adb3fa64cfd2578": "processed-compositionaf8d2f6e4772c29a8ef9fbb165e80d28", // HIPERICO ARKOPHARMA
     "bundlepackageleaflet-en-dcaa4d32aa6658a8df831551503e52ee": "Processedbundlekarvea", // Karvea
     
     
     //Spanish TS ePIs
-    "bundlepackageleaflet-es-dcaa4d32aa6658a8df831551503e52ee": "bundleprocessed-es-b44cce291e466626afa836fffe72c350", // Biktarvy ES
+    "bundlepackageleaflet-es-94a96e39cfdcd8b378d12dd4063065f9": "bundleprocessed-es-b44cce291e466626afa836fffe72c350", // Biktarvy ES
     "bundlepackageleaflet-es-04c9bd6fb89d38b2d83eced2460c4dc1": "processedbundleflucelvaxES", // Flucelvax ES
-    "bundlepackageleaflet-es-f98744933a164dfc1d0bf89825ebfca1": "processedbundledovato-es", // Dovato ES
+    "bundlepackageleaflet-es-49178f16170ee8a6bc2a4361c1748d5f": "processedbundledovato-es", // Dovato ES
     "bundlepackageleaflet-es-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcio ES
 
     "bundlepackageleaflet-es-2f37d696067eeb6daf1111cfc3272672": "bundlepackageleaflet-es-proc-2f37d696067eeb6daf1111cfc3272672", // tegretol
