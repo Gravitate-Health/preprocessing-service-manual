@@ -49,8 +49,13 @@ export const preprocess = async (req: Request, res: Response) => {
     "bundlepackageleaflet-es-925dad38f0afbba36223a82b3a766438": "processedbundlekarveacalcium", // Calcio ES
 
     "bundlepackageleaflet-es-2f37d696067eeb6daf1111cfc3272672": "bundlepackageleaflet-es-proc-2f37d696067eeb6daf1111cfc3272672", // tegretol
+    "bundlepackageleaflet-en-2f37d696067eeb6daf1111cfc3272672": "bundlepackageleaflet-en-proc-2f37d696067eeb6daf1111cfc3272672",
     "bundlepackageleaflet-es-4fab126d28f65a1084e7b50a23200363": "bundlepackageleaflet-es-proc-4fab126d28f65a1084e7b50a23200363", // xenical
+    "bundlepackageleaflet-en-4fab126d28f65a1084e7b50a23200363": "bundlepackageleaflet-en-proc-4fab126d28f65a1084e7b50a23200363",
     "bundlepackageleaflet-es-29436a85dac3ea374adb3fa64cfd2578": "processedbundlehypericum",
+
+    "bundlepackageleaflet-es-da0fc2395ce219262dfd4f0c9a9f72e1": "bundlepackageleaflet-es-proc-da0fc2395ce219262dfd4f0c9a9f72e1",
+    "bundlepackageleaflet-es-e762a2f54b0b24fca4744b1bb7524a5b": "bundlepackageleaflet-es-proc-e762a2f54b0b24fca4744b1bb7524a5b",
 
     "bundle-ibu-raw": "bundle-ibu-proc",
     "bundle-met-raw": "bundle-met-proc",
