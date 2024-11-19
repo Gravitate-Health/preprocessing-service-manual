@@ -18,26 +18,19 @@ metadata:
   name: preprocessing-service-manual
 
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: preprocessing-service-manual
   template:
-    metadata:
-      labels:
-        app: preprocessing-service-manual
     spec:
       containers:
         - name: preprocessing-service-manual
           image: gravitate-registry.cr.de-fra.ionos.com/preprocessing-service-manual:latest
+          resources: {}
           imagePullPolicy: Always
           env:
             - name: ENVIRONMENT
-              value: "prod"
+              value: "dev"
             - name: URL
-              value: "https://fosps.gravitatehealth.eu"
-          ports:
-            - containerPort: 3000
-              protocol: TCP
-      restartPolicy: Always
+              value: "https://gravitate-health.lst.tfo.upm.es"
 status: {}
