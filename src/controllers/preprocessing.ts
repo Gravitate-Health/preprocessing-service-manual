@@ -60,7 +60,13 @@ export const preprocess = async (req: Request, res: Response) => {
     "bundle-ibu-raw": "bundle-ibu-proc",
     "bundle-met-raw": "bundle-met-proc",
     "bundle-novo-raw": "bundle-novo-proc",
+
+    // Portugal TS
+    "PT-Glimepirida-Generis": "PT-Glimepirida-Generis-processed-bundle",
+    "PT-Actrapid": "PT-Actrapid-processed-bundle",
+    "PT-GLUCOPHAGE": "PT-GLUCOPHAGE-processed-bundle",
   }
+
   let preprocessedId = rawToPreprocessedIds[epiId]
 
   if (preprocessedId) {
