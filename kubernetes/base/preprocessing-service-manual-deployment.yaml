@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: preprocessing-service-manual
-          image: gravitate-registry.cr.de-fra.ionos.com/preprocessing-service-manual:latest
+          image: gravitate-registry.cr.de-fra.ionos.com/preprocessing-service-manual:v0.12.0
           resources: {}
           imagePullPolicy: Always
           env:
