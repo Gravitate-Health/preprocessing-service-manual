@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: preprocessing-service-manual
-          image: gravitate-registry.cr.de-fra.ionos.com/preprocessing-service-manual:latest
+          image: ghcr.io/gravitate-health/preprocessing-service-manual:latest
           resources: {}
           imagePullPolicy: Always
           env:
