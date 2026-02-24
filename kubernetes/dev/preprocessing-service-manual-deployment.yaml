@@ -31,6 +31,6 @@ spec:
           env:
             - name: ENVIRONMENT
               value: "dev"
-            - name: URL
-              value: "https://gravitate-health.lst.tfo.upm.es"
+            - name: FHIR_EPI_URL
+              value: "http://fhir-server-epi:8080/api/fhir"
 status: {}

@@ -25,11 +25,11 @@ This repository contains a preprocesing service which returns manually preproces
 ---
 ## Kubernetes Deployment
 
-1. Edit the `kubernetes-yaml/002_preprocessing-service-manual-deployment.yaml` file and change the `URL` environment variable to point to the base URL where FHIR Server is hosted. For example:
+1. Edit the `kubernetes-yaml/002_preprocessing-service-manual-deployment.yaml` file and change the `FHIR_EPI_URL` environment variable to point to the base FHIR_EPI_URL where FHIR Server for ePIs is hosted. For example:
 ```yaml
 env:
-  - name: URL
-    value: "https://fosps.gravitatehealth.eu/"
+  - name: FHIR_EPI_URL
+    value: "http://fhir-server-epi:8080/api/fhir"
 ```
 
 2. Create the following resources:
