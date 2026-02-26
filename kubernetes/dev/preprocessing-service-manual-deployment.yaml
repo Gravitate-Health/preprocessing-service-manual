@@ -32,5 +32,5 @@ spec:
             - name: ENVIRONMENT
               value: "dev"
             - name: FHIR_EPI_URL
-              value: "http://fhir-server-epi:8080/api/fhir"
+              value: "http://fhir-server-epi:8080/epi/api/fhir"
 status: {}

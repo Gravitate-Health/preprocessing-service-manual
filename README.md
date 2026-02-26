@@ -29,7 +29,7 @@ This repository contains a preprocesing service which returns manually preproces
 ```yaml
 env:
   - name: FHIR_EPI_URL
-    value: "http://fhir-server-epi:8080/api/fhir"
+    value: "http://fhir-server-epi:8080/epi/api/fhir"
 ```
 
 2. Create the following resources:
