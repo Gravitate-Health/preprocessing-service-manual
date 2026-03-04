@@ -1,0 +1,211 @@
+# Copyright 2022 Universidad Politécnica de Madrid
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Default values for preprocessing-service-manual.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# -- Number of replicas for the deployment
+replicaCount: 1
+
+# Image configuration
+image:
+  # -- Container image repository
+  repository: ghcr.io/gravitate-health/preprocessing-service-manual
+  # -- Image pull policy
+  pullPolicy: Always
+  # -- Overrides the image tag whose default is the chart appVersion
+  tag: "v0.14.0"
+
+# -- Image pull secrets for private registries
+imagePullSecrets: []
+
+# -- Override the name of the chart
+nameOverride: ""
+
+# -- Override the full name of the release
+fullnameOverride: ""
+
+# Service Account configuration
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: false
+  # -- Annotations to add to the service account
+  annotations: {}
+  # -- The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# -- Annotations to add to the pod
+podAnnotations: {}
+
+# -- Labels to add to the pod
+podLabels: {}
+
+# Pod Security Context
+# @default -- See values.yaml
+podSecurityContext: {}
+  # fsGroup: 2000
+
+# Container Security Context
+# @default -- See values.yaml
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+# Service configuration
+service:
+  # -- Kubernetes service type
+  type: ClusterIP
+  # -- Service port
+  port: 3000
+  # -- Container port
+  containerPort: 3000
+  # -- Service node port (only for NodePort type)
+  nodePort:
+  # -- Enable the Gravitate Health preprocessing service discovery label
+  # Required for the focusing manager to discover this service
+  gravitateHealthLabel: true
+  # -- Additional labels to add to the service
+  additionalLabels: {}
+  # -- Annotations to add to the service  
+  annotations: {}
+
+# Application configuration (non-sensitive environment variables)
+config:
+  # -- Environment name (dev, staging, prod)
+  environment: "prod"
+  # -- FHIR EPI server base URL
+  # This should point to the FHIR server where ePIs are stored
+  fhirEpiUrl: "http://fhir-server-epi:8080/epi/api/fhir"
+
+# -- Additional environment variables
+# Example:
+# extraEnvVars:
+#   - name: LOG_LEVEL
+#     value: "debug"
+extraEnvVars: []
+
+# Liveness probe configuration
+livenessProbe:
+  # -- Enable liveness probe
+  enabled: false
+  # -- Path for the liveness probe
+  path: /
+  # -- Initial delay in seconds
+  initialDelaySeconds: 30
+  # -- Period in seconds
+  periodSeconds: 10
+  # -- Timeout in seconds
+  timeoutSeconds: 5
+  # -- Success threshold
+  successThreshold: 1
+  # -- Failure threshold
+  failureThreshold: 3
+
+# Readiness probe configuration
+readinessProbe:
+  # -- Enable readiness probe
+  enabled: false
+  # -- Path for the readiness probe
+  path: /
+  # -- Initial delay in seconds
+  initialDelaySeconds: 10
+  # -- Period in seconds
+  periodSeconds: 10
+  # -- Timeout in seconds
+  timeoutSeconds: 5
+  # -- Success threshold
+  successThreshold: 1
+  # -- Failure threshold
+  failureThreshold: 3
+
+# Resource limits and requests
+# @default -- See values.yaml
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 500m
+  #   memory: 512Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# -- Volume mounts for the container
+volumeMounts: []
+
+# -- Volumes for the pod
+volumes: []
+
+# -- Node selector for pod assignment
+nodeSelector: {}
+
+# -- Tolerations for pod assignment
+tolerations: []
+
+# -- Affinity rules for pod assignment
+affinity: {}
+
+# -- Restart policy for the pod
+restartPolicy: Always
+
+# Ingress configuration (disabled by default, as this is an internal service)
+ingress:
+  # -- Enable ingress
+  enabled: false
+  # -- Ingress class name
+  className: ""
+  # -- Ingress annotations
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # -- Ingress hosts configuration
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  # -- Ingress TLS configuration
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+# Istio VirtualService configuration (optional)
+# Enable this if you're using Istio for traffic management
+istio:
+  # -- Enable Istio VirtualService
+  enabled: false
+  # -- Gateway name(s) to attach to
+  gateways: []
+  # -- Hosts for the VirtualService
+  hosts:
+    - "*"
+  # -- HTTP route configuration
+  http:
+    - match:
+        - uri:
+            prefix: /preprocessing
+      route:
+        - destination:
+            host: preprocessing-service-manual
+            port:
+              number: 3000

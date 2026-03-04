@@ -1,0 +1,38 @@
+Thank you for installing {{ .Chart.Name }}!
+
+Your release is named: {{ .Release.Name }}
+
+The Gravitate Health Preprocessing Service Manual has been deployed.
+
+To get the application URL:
+
+{{- if contains "NodePort" .Values.service.type }}
+  export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "preprocessing-service-manual.fullname" . }})
+  export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+  echo "Visit http://$NODE_IP:$NODE_PORT to use your application"
+{{- else if contains "LoadBalancer" .Values.service.type }}
+  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        You can watch the status by running 'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "preprocessing-service-manual.fullname" . }}'
+  export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "preprocessing-service-manual.fullname" . }} --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
+  echo "Visit http://$SERVICE_IP:{{ .Values.service.port }} to use your application"
+{{- else if contains "ClusterIP" .Values.service.type }}
+  echo "Access the service internally within the cluster at:"
+  echo "  http://{{ include "preprocessing-service-manual.fullname" . }}:{{ .Values.service.port }}"
+  
+  Or use port-forwarding to access it locally:
+  kubectl --namespace {{ .Release.Namespace }} port-forward svc/{{ include "preprocessing-service-manual.fullname" . }} 3000:{{ .Values.service.port }}
+  echo "Visit http://127.0.0.1:3000 to use your application"
+{{- end }}
+
+Configuration:
+  Environment: {{ .Values.config.environment }}
+  FHIR EPI URL: {{ .Values.config.fhirEpiUrl }}
+
+{{- if .Values.service.gravitateHealthLabel }}
+
+NOTE: This service is configured with the Gravitate Health preprocessing label
+      (eu.gravitate-health.fosps.preprocessing: "true") and should be discoverable
+      by the focusing manager.
+{{- end }}
+
+For more information, visit: https://github.com/Gravitate-Health/preprocessing-service-manual
